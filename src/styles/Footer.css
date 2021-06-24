@@ -1,0 +1,14 @@
+ footer div{
+    
+    height: 80px;
+    border-radius: 15px;
+    background-color: #007BFF;
+    color:white;
+    text-align: right;
+    padding: 20px;
+   
+}
+footer span{
+font-weight: bold;
+color: navy
+}

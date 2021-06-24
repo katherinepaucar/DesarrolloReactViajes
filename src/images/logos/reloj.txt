@@ -1,0 +1,73 @@
+import React from 'react';
+import imagenes from '../images/imagenes';
+
+
+
+
+
+class HoraFecha extends React.Component{
+
+    setReloj(){   
+       
+            let  momentoActual = new Date();
+            let hora = momentoActual.getHours();
+            let  minuto = momentoActual.getMinutes();
+            let segundo = momentoActual.getSeconds();
+            let anio=momentoActual.getFullYear();
+            let mes = momentoActual.getMonth();
+            let dia=momentoActual.getDay();
+            let diames=momentoActual.getDate();
+             if(hora < 10){
+                 hora = "0" + hora;
+             }
+             if(minuto < 10){
+                minuto = "0" + minuto;
+            }
+          if(segundo < 10){
+                segundo = "0" + segundo;
+            }
+            let  dias = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes', 'Sábado'];
+            let  meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio', 'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre']
+            //return dias[date.getDay()]
+            
+            let horaImprimible = hora + " : " + minuto + " : " + segundo;
+
+    
+            let fechaImprimible = dias[dia]+ " "+ diames +"/" + meses[mes] + "/" + anio;
+            return (
+                <div>
+                <h2>{fechaImprimible}</h2>
+                <h3>{horaImprimible}</h3>
+                    
+                </div>
+            );
+      
+
+            
+     
+  
+    }
+    
+
+
+    render(){
+        return(
+            <div>
+                <div className="row text-center">
+
+                    <div className="col-md-6">
+                        <img src={imagenes[4]} alt="hora" style={{width:'150px',height:'100px'}}/>
+                    </div>
+                    <div className="col-md-6">
+
+
+            {    this.setReloj()}                      
+                    </div>
+                </div>             
+            </div>
+        );
+    }
+
+}
+
+export default HoraFecha;

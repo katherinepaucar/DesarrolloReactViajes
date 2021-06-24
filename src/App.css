@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+}
+.idioma{
+  text-align: right;
+}
+
+.idioma img:hover{
+  cursor: pointer;
+  transform: scale(1.4);
+  padding-right: 2px;
+}

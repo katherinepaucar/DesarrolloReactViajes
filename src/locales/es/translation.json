@@ -1,0 +1,7 @@
+{
+    "Welcome to React": "Bienvenido a React y react-i18next",
+    "inicio.nav":"Inicio",
+    "destinos.nav":"Destinos",
+    "clima.nav":"Clima",
+    "login.nav":"Iniciar Sesión"
+}

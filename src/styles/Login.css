@@ -1,0 +1,72 @@
+.colorfondoform{
+   min-height: 500px;
+   border-left: 1px dotted blue;
+   border-right: 1px dotted blue;
+ 
+}
+
+.colorfondoform form{
+width:60%;
+margin: 0 auto; 
+padding: 65px;
+background-color:#1c313a;
+margin-top: 60px;
+border-radius: 5px;
+
+}
+.colorfondoform label{
+   color:white
+}
+.colorfondoform input{
+   color:black
+}
+
+.loginBtn{
+   height: 35px;
+   box-sizing: border-box;
+   border: 1px solid #d0d0d0;
+   border-radius: 3px;
+   cursor: pointer;
+   background-color: #f5f4ea;
+   
+   
+ }
+
+ .loginBtn:hover{
+   background: #c3c3ba;
+ }
+ .registerBtn{
+   float: right;
+   margin-right: 45px;
+   background: #103eaa;
+   color: #fff;
+   height: 35px;
+   box-sizing: border-box;
+   border: 1px solid #d0d0d0;
+   border-radius: 3px;
+   cursor: pointer;
+   
+ }
+ .registerBtn:hover{
+   background: #5f5aa7;
+ }
+ .registrar{
+    text-align: center;
+ }
+ .colorfondoform .titulo{
+    text-align: center;
+    font-size: 22px;
+    background-color: white;
+    font-weight: bold;
+ }
+ .colorfondoform .botonLogin{
+    text-align: center;
+ }
+
+ .Error{
+   padding: 10px;
+   background-color: #feeaea;
+   border: 1px solid #fadadb;
+   margin-bottom: 10px;
+   border-radius: 3px;
+ }

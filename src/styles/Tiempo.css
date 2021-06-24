@@ -1,0 +1,44 @@
+.card p{
+    text-align: center;
+}
+
+.colorfondoT{
+    background-color: #4bacb8;
+    min-height: 500px;
+}
+.colorfondoT p{
+    text-align: center;
+}
+.colorfondoT a{
+    color:white
+}
+
+.colorfondoT button:hover{
+    background-color:white;
+    color:#ffab91e0;
+    text-decoration: none;
+   
+}
+
+.colorfondoT a:hover{
+    text-decoration: none;
+    
+}
+
+.mover{
+    animation: temporizador infinite 1.4s linear;
+}
+
+@keyframes temporizador {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+.estilofondo{
+    background-color: white;
+}
+
+  

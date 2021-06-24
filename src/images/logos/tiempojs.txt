@@ -1,0 +1,139 @@
+import React from 'react';
+import axios from 'axios';
+import calendario  from '../images/logos/calendario.png';
+import imagenes from '../images/imagenes';
+import '../styles/Tiempo.css'
+
+class Tiempo extends React.Component{
+
+   conseguir(){
+
+  
+   } 
+    constructor(){
+        super();
+        this.state={
+            lista_tiempo:[]
+        }
+    }
+
+    
+    async componentDidMount(){
+
+
+        const { match: { params } } = this.props;
+        console.log(params.id)
+        const lat='35.6895';
+        const lng='139.69171';
+        // coordenadas:[35.6895, 139.69171], japon
+        const response =await axios.get(`http://www.7timer.info/bin/civillight.php?lon=${lng}&lat=${lat}&ac=0&unit=metric&output=json`);
+      //console.log(response.data.dataseries)
+      this.setState({
+          lista_tiempo:response.data.dataseries
+        
+      });
+      
+    }
+    formatoFecha(value){
+        value="" + value;
+        if(!value){
+            return "";
+        }
+        let anio=value.substring(0,4);
+        let mes = value.substring(4,6);
+        let dia= value.substring(6,8);
+        return anio + "-" + mes + "-" + dia;
+    }
+
+    formatoDia(valor){
+        let date= new Date(valor);
+        if(!valor){
+            return ""
+        }
+
+        let  dias = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes', 'Sábado']
+        return dias[date.getDay()]
+        
+    }
+    cargarImagen(img) {
+
+        if(img==="cloudy"){
+            return imagenes[0];
+        }
+        if(img==="rain"){
+            return imagenes[1];
+        }
+        if(img==="lightrain"){
+            return imagenes[2];
+        }
+        if(img==="clear"){
+            return imagenes[3];
+        }
+        
+      }
+
+
+    verDatos = () =>this.state.lista_tiempo.map((dato) =>(
+
+       // console.log(this.state.lista_tiempo);
+       <div className="card " key={dato.date}>
+            <div className="card-body">
+                <div className="row text-center">
+                    <div className="col-lg-4 col-12">
+                    <h1 className="display-1">{dato.temp2m.max}°</h1>
+                    
+                    <p>Mínima: {dato.temp2m.min}°</p>
+                    </div>
+    
+                    <div className="col-lg-4 col-12">
+                        <img style={{width:'40%',height:'40%'}} className="img-fluid mb-2" src={this.cargarImagen(dato.weather)} alt="Imagen del clima"/>
+                        <p>{dato.weather}</p>
+                    </div>
+                    <div className="col-lg-4 col-12">
+
+                    <img src={calendario} alt="calendario" style={{height:'20%',width:"10%"}}/>
+                        <p className="h1">
+                        {this.formatoDia(this.formatoFecha(dato.date))}
+                        </p>
+                        <p className="h6">
+  
+                        
+                        {this.formatoFecha(dato.date)}
+                        </p>
+                    </div>
+                </div>
+            </div>
+       </div>
+
+        
+    ));
+    render(){
+        const { match: { params } } = this.props;
+       // console.log(params.codigo)
+        return(
+
+            <div style={{backgroundColor:'pink'}}>
+                <p>Tiempo</p>
+               {this.verDatos()}
+               
+                <p><small>Datos extraidos de "7timer" API</small> </p>
+                
+            </div>
+        );
+    }
+
+}
+
+//Madrid 40.4165, -3.70256
+//http://www.7timer.info/bin/civillight.php?lon=139.69171&lat=35.6895&ac=0&unit=metric&output=json
+export default Tiempo;
+
+/*
+
+        const response =await axios.get(`http://www.7timer.info/bin/civillight.php?lon=${lng}&lat=${lat}&ac=0&unit=metric&output=json`)
+        console.log(response)
+
+            {this.obtenerDatosClima('35.6895','139.69171').dataseries}
+
+
+*/
