@@ -6,3 +6,6 @@ Desarrollo Web con React + Firebase Login
 Los datos se declaran dentro del componente y según elijas el país te lleva a la información especifíca.
 - La Pestaña Clima, recoge datos necesarios para poder realizar consultas a la API de tiempo ("7timer" API) y formateamos la salida de los datos.
 - Inicio de sesión implementado con Firebase mediante email.
+
+Web desplegada en Firebase Hosting
+https://katherine-ps.web.app/
